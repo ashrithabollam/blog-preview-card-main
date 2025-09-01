@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+  <!-- Figtree font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,opsz,wght@0,14..88,400..900;1,14..88,400..900&display=swap" rel="stylesheet">
+  <title>Blog preview card</title>
+
+  <style>
+    /* ===== Tokens ===== */
+    :root{
+      --yellow: hsl(47, 88%, 63%);
+      --black: hsl(0, 0%, 7%);
+      --gray: hsl(0, 0%, 42%);
+      --white: #fff;
+      --radius-card: 20px;
+      --radius-img: 10px;
+      --shadow-offset: 8px;
+    }
+
+    /* ===== Reset / base ===== */
+    *,*::before,*::after{ box-sizing: border-box; }
+    html,body{ height: 100%; }
+    body{
+      margin: 0;
+      font-family: "Figtree", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--black);
+      background: var(--yellow);
+      display: grid;
+      place-items: center;   /* center card vertically & horizontally */
+    }
+
+    /* ===== Card ===== */
+    .card{
+      width: 384px;                  /* desktop comp width */
+      background: var(--white);
+      border: 1px solid var(--black);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-offset) var(--shadow-offset) 0 0 var(--black);
+      padding: 24px;
+    }
+    .card__cover{
+      width: 100%;
+      display: block;
+      border-radius: var(--radius-img);
+    }
+    .card__body{ margin-top: 20px; }
+
+    .badge{
+      display:inline-block;
+      background: var(--yellow);
+      font-weight: 800;
+      font-size: 0.875rem;
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+
+    .publish{
+      margin: 12px 0 0;
+      font-size: 0.875rem;
+    }
+
+    .title{
+      margin: 12px 0;
+      font-size: 1.5rem;
+      line-height: 1.2;
+    }
+    .title a{
+      color: var(--black);
+      text-decoration: none;
+    }
+    .title a:hover,
+    .title a:focus-visible{
+      color: var(--yellow);
+      outline: none;
+    }
+
+    .excerpt{
+      margin: 0 0 24px;
+      color: var(--gray);
+      line-height: 1.55;
+    }
+
+    .author{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .author__avatar{
+      width:32px;
+      height:32px;
+      border-radius:50%;
+    }
+    .author__name{
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    /* small safety for narrow screens */
+    @media (max-width: 420px){
+      .card{ width: calc(100vw - 48px); max-width: 384px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <article class="card" role="article" aria-labelledby="post-title">
+      <img class="card__cover"
+           src="./assets/images/illustration-article.svg"
+           alt="Abstract illustration in yellow, white and black" />
+
+      <div class="card__body">
+        <span class="badge">Learning</span>
+
+        <p class="publish">
+          Published <time datetime="2023-12-21">21 Dec 2023</time>
+        </p>
+
+        <h1 id="post-title" class="title">
+          <a href="#" aria-describedby="post-excerpt">HTML &amp; CSS foundations</a>
+        </h1>
+
+        <p id="post-excerpt" class="excerpt">
+          These languages are the backbone of every website, defining structure, content, and presentation.
+        </p>
+
+        <div class="author">
+          <img class="author__avatar" src="./assets/images/image-avatar.webp" alt="Greg Hooper" />
+          <span class="author__name">Greg Hooper</span>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- Attribution kept but hidden per challenge -->
+  <div class="attribution" hidden>
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name</a>.
+  </div>
+</body>
+</html>
